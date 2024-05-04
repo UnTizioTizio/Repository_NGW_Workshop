@@ -1,25 +1,26 @@
-let card_container = document.getElementById("card-container");
+let card_container = document.getElementById("cards-container");
 
-card_template = `
+let card_template = (value) => `
     <div class="card" style="width: 18rem;">
-        <img src="${data.img}" class="card-img-top">
+        <img src="${value.img}" class="card-img-top">
         <div class="card-body">
-            <h3>${data.name}</h3>
-            <p class="card-text">${data.description}</p>
+            <h3>${value.name}</h3>
+            <p class="card-text">${value.description}</p>
         </div>
     </div>
 `;
 
-cards_data = [
+let cards_data = [
     {name: "Taormina", description: "Teatro antico di Taormina", img: "https://www.strettoweb.com/wp-content/uploads/2021/03/teatro-greco-taormina.jpeg"},
     {name: "Ortigia - Siracusa", description: "Fontana di Aretusa", img: "https://101-zone.com/wp-content/uploads/2022/05/0A1A2317.jpg"},
     {name: "Lipari - Isole Eolie", description: "Centro storico di Lipari", img: "https://101-zone.com/wp-content/uploads/2021/09/lipari.jpg"}
 ];
 
+GenerateCards(card_container, card_template, cards_data);
+
 function GenerateCards(container, template, data)
 {
     data.forEach(value => {
-        console.log(value);
-        container.innerHTML += template;
+        container.innerHTML += template(value);
     });
 }
