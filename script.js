@@ -1,8 +1,8 @@
 let card_container = document.getElementById("cards-container");
 
 let card_template = (value) => `
-    <div class="card" style="width: 18rem;">
-        <img src="${value.img}" class="card-img-top">
+    <div class="card m-3" style="width: 18rem;">
+        <img src="${value.img}" class="card-img-top overflow-hidden">
         <div class="card-body">
             <h3>${value.name}</h3>
             <p class="card-text">${value.description}</p>
